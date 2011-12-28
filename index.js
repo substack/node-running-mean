@@ -15,7 +15,10 @@ var exports = module.exports = function () {
 };
 
 exports.fromList = function (xs) {
-    return xs.reduce(function (mean, x, i) {
-        return mean - mean / (i + 1) + x / (i + 1);
-    });
+    return xs.length === 0
+        ? undefined
+        : xs.reduce(function (mean, x, i) {
+            return mean - mean / (i + 1) + x / (i + 1);
+        })
+    ;
 };

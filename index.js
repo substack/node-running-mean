@@ -1,13 +1,14 @@
 var exports = module.exports = function () {
     var res = {
         length : 0,
-        mean : 0,
+        mean : undefined,
         inspect : function () {
             return '<Mean[' + res.length + '] ' + res.mean + '>';
         },
         push : function (x) {
             var i = ++ res.length;
-            res.mean = res.mean - res.mean / i + x / i;
+            var m = res.mean || 0;
+            res.mean = m - m / i + x / i;
             return res.mean;
         }
     };

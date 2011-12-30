@@ -1,7 +1,7 @@
 running-mean
 ============
 
-Compute the running mean of a sequence of numbers.
+Compute the mean incrementally in constant space.
 
 examples
 ========

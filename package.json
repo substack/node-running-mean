@@ -1,7 +1,7 @@
 {
     "name" : "running-mean",
     "version" : "0.0.0",
-    "description" : "compute the running mean incrementally in constant space",
+    "description" : "compute the mean incrementally in constant space",
     "main" : "index.js",
     "directories" : {
         "lib" : ".",

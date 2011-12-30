@@ -96,3 +96,15 @@ mean.fromList(xs)
 -----------------
 
 Return the mean computed incrementally from a list `xs`.
+
+install
+=======
+
+With [npm](http://npmjs.org) do:
+
+    npm install running-mean
+
+license
+=======
+
+MIT/X11

@@ -1,0 +1,34 @@
+{
+    "name" : "running-mean",
+    "version" : "0.0.0",
+    "description" : "compute the running mean incrementally in constant space",
+    "main" : "index.js",
+    "directories" : {
+        "lib" : ".",
+        "example" : "example",
+        "test" : "test"
+    },
+    "devDependencies" : {
+        "tap" : "0.0.x"
+    },
+    "scripts" : {
+        "test" : "tap test"
+    },
+    "repository" : {
+        "type" : "git",
+        "url" : "http://github.com/substack/node-running-mean.git"
+    },
+    "keywords" : [
+        "average",
+        "mean",
+        "in-place",
+        "statistics"
+    ],
+    "author" : {
+        "name" : "James Halliday",
+        "email" : "mail@substack.net",
+        "url" : "http://substack.net"
+    },
+    "license" : "MIT/X11",
+    "engine" : { "node" : ">=0.4" }
+}

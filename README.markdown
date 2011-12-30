@@ -28,6 +28,7 @@ incremental update
 
 run.js:
 
+``` js
 var mean = require('running-mean');
 var r = mean();
 [ 8, 4, 2, 3, 9, 5, 4, 8 ].forEach(function (n) {

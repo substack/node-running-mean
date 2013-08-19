@@ -1,21 +1,36 @@
-var exports = module.exports = function () {
-    var res = {
-        length : 0,
-        mean : undefined,
-        inspect : function () {
-            return '<Mean[' + res.length + '] ' + res.mean + '>';
-        },
-        push : function (x) {
-            var i = ++ res.length;
-            var m = res.mean || 0;
-            res.mean = m - m / i + x / i;
-            return res.mean;
-        }
-    };
-    return res;
+var Transform = require('stream').Transform ||
+                require('readable-stream').Transform;
+
+module.exports = Mean;
+
+function Mean () {
+    if (!(this instanceof Mean)) return new Mean();
+    this.length = 0;
+    this.mean = undefined;
+}
+
+Mean.prototype.inspect = function () {
+    return '<Mean[' + this.length + '] ' + this.mean + '>';
 };
 
-exports.fromList = function (xs) {
+Mean.prototype.push = function (x) {
+    var i = ++ this.length;
+    var m = this.mean || 0;
+    this.mean = m - m / i + x / i;
+    return this.mean;
+};
+
+Mean.prototype.createStream = function () {
+    var self = this;
+    var tr = Transform({ objectMode : true });
+    tr._transform = function (chunk, _, done) {
+        tr.push(self.push(chunk));
+        done();
+    };
+    return tr;
+};
+
+Mean.fromList = function (xs) {
     return xs.length === 0
         ? undefined
         : xs.reduce(function (mean, x, i) {

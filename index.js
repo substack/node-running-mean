@@ -1,5 +1,5 @@
-var Transform = require('stream').Transform ||
-                require('readable-stream').Transform;
+var Transform = require('stream').Transform
+    || require('readable-stream').Transform;
 
 module.exports = Mean;
 

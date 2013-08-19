@@ -93,6 +93,13 @@ r.length
 
 Number of values pushed onto the running mean
 
+r.createStream()
+----------------
+
+Create a
+[transform stream](http://nodejs.org/api/stream.html#stream_class_stream_transform)
+that accepts numbers and outputs the respective current value of the running mean.
+
 mean.fromList(xs)
 -----------------
 
